@@ -1,9 +1,7 @@
-
+import SearchCapital from "./SearchCapital/SearchCapital";
 
 const App = () => {
-  return (
-    <div>Capitals finder</div>
-  )
-}
+  return <><SearchCapital/></>;
+};
 
-export default App
+export default App;
