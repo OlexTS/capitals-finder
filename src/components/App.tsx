@@ -7,6 +7,9 @@ const App = () => {
   const [countryInfo, setCountryInfo] = useState<Country | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
+  console.log(countryInfo);
+  console.log(isLoading);
+  console.log(isError);
 
   const handleSearch = async (countryName: string) => {
     setIsLoading(true);
