@@ -1,8 +1,28 @@
+import { useState } from "react";
 import SearchCapital from "./SearchCapital/SearchCapital";
+import type { Country } from "../types/country";
+import { fetchCountryInfo } from "../services/contryService";
 
 const App = () => {
-  const handleSearch = (countryName: string) => {
-    console.log(`Шукаємо ${countryName}`);
+  const [countryInfo, setCountryInfo] = useState<Country | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isError, setIsError] = useState<boolean>(false);
+
+  const handleSearch = async (countryName: string) => {
+    setIsLoading(true);
+    setIsError(false);
+    setCountryInfo(null);
+    try {
+      const data = await fetchCountryInfo(countryName);
+      if (data) {
+        setCountryInfo(data);
+      }
+    } catch (error) {
+      setIsError(true);
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
   return (
     <div className="container">
