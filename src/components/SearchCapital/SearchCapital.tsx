@@ -11,6 +11,7 @@ const SearchCapital = ({ onSearch }: SearchCapitalProps) => {
     if (inputValue.trim()) {
       onSearch(inputValue);
     }
+    setInputValue('')
   };
   return (
     <form onSubmit={handleSubmit}>
