@@ -3,6 +3,7 @@ import SearchCapital from "./SearchCapital/SearchCapital";
 import type { Country } from "../types/country";
 import { fetchCountryInfo } from "../services/contryService";
 import CountryInfo from "./CountryInfo/CountryInfo";
+import Loader from "./Loader/Loader";
 
 const App = () => {
   const [countryInfo, setCountryInfo] = useState<Country | null>(null);
@@ -33,9 +34,9 @@ const App = () => {
     <div className="container">
       <h1>Capital Finder</h1>
       <SearchCapital onSearch={handleSearch} />
-      {isLoading && <p>Loading...</p>}
       {isError && <p>Please try again</p>}
       {countryInfo && <CountryInfo data={countryInfo}/>}
+      {isLoading && <Loader/>}
     </div>
   );
 };
