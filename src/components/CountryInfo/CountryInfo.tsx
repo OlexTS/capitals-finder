@@ -7,6 +7,7 @@ interface CountryInfoProps {
 const CountryInfo = ({ data }: CountryInfoProps) => {
   return (
     <div>
+      
       <img src={data.flags.svg} alt={data.flags.alt} width="200" />
       <h2>{data.name.common}</h2>
       <div>
