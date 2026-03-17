@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { Country } from "../../types/country";
+import styles from "./CountryInfo.module.css";
 
 interface CountryInfoProps {
   data: Country;
@@ -20,27 +21,27 @@ const CountryInfo = ({ data }: CountryInfoProps) => {
     setIsShowMore((prev) => !prev);
   };
   return (
-    <div>
-      <img src={data.flags.svg} alt={data.flags.alt} width="200" />
-      <h2>{data.name.common}</h2>
-      <div>
-        <p>Capital: {data.capital[0] || "N/A"}</p>
-        <p>Region: {data.region}</p>
-        <p>Population: {data.population.toLocaleString()}</p>
+    <div className={styles.card}>
+      <img className={styles.flag} src={data.flags.svg} alt={data.flags.alt} width="200" />
+      <h2 className={styles.title}>{data.name.common}</h2>
+      <div className={styles.infoGroup}>
+        <p ><span className={styles.label}>Capital: </span>{data.capital[0] || "N/A"}</p>
+        <p ><span className={styles.label}>Region: </span>{data.region}</p>
+        <p ><span className={styles.label}>Population: </span>{data.population.toLocaleString()}</p>
         <div>
-          Borders:
+          <span className={styles.label}>Borders:</span>
           {!data.borders || data.borders.length === 0 ? (
             <span>"There are no land borders"</span>
           ) : (
-            <ul>
+            <ul className={styles.bordersList}>
               {data.borders.map((el) => (
-                <li key={el}>{el}</li>
+                <li key={el} className={styles.borderTag}>{el}</li>
               ))}
             </ul>
           )}
         </div>
       </div>
-      <button onClick={toggleShowMore}>
+      <button onClick={toggleShowMore} className={styles.toggleBtn}>
         {isShowMore ? "Hide Details" : "Show Details"}
       </button>
       {isShowMore && (
@@ -48,7 +49,7 @@ const CountryInfo = ({ data }: CountryInfoProps) => {
           <p>Currencies: {currensiesList}</p>
           <p>Languages: {languagesList}</p>
           <p>
-            Maps: {' '}
+            Maps:{" "}
             <a
               href={data.maps.googleMaps}
               target="_blank"
