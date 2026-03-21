@@ -22,20 +22,38 @@ const CountryInfo = ({ data }: CountryInfoProps) => {
   };
   return (
     <div className={styles.card}>
-      <img className={styles.flag} src={data.flags.svg} alt={data.flags.alt} width="200" />
-      <h2 className={styles.title}>{data.name.common}</h2>
+      <div className={styles.identityGroup}>
+        <img
+          className={styles.flag}
+          src={data.flags.svg}
+          alt={data.flags.alt}
+          width="200"
+        />
+        <h2 className={styles.title}>{data.name.common}</h2>
+      </div>
       <div className={styles.infoGroup}>
-        <p ><span className={styles.label}>Capital: </span>{data.capital[0] || "N/A"}</p>
-        <p ><span className={styles.label}>Region: </span>{data.region}</p>
-        <p ><span className={styles.label}>Population: </span>{data.population.toLocaleString()}</p>
-        <div>
+        <p>
+          <span className={styles.label}>Capital: </span>
+          {data.capital[0] || "N/A"}
+        </p>
+        <p>
+          <span className={styles.label}>Region: </span>
+          {data.region}
+        </p>
+        <p>
+          <span className={styles.label}>Population: </span>
+          {data.population.toLocaleString()}
+        </p>
+        <div className={styles.bordersSection}>
           <span className={styles.label}>Borders:</span>
           {!data.borders || data.borders.length === 0 ? (
             <span>"There are no land borders"</span>
           ) : (
             <ul className={styles.bordersList}>
               {data.borders.map((el) => (
-                <li key={el} className={styles.borderTag}>{el}</li>
+                <li key={el} className={styles.borderTag}>
+                  {el}
+                </li>
               ))}
             </ul>
           )}

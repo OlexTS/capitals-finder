@@ -10,7 +10,10 @@
   align-items: center;
   transition: all 0.3s ease;
 }
-
+.identityGroup{
+  text-align: center;
+  margin-bottom: 20px;
+}
 .flag {
   width: 100%;
   max-width: 300px;
@@ -62,23 +65,61 @@
   font-weight: 600;
   cursor: pointer;
 }
-@media (min-width: 768px){
-    .card{
-        max-width: 600px;
-        padding: 32px;
-        flex-direction: row;
-        align-items: flex-start;
-        gap: 24px;
-    }
-    .flag {
-        width: 140px;
-        margin-bottom: 0;
-    }
-    .infoGroup{
-        flex: 1
-    }
-    .title {
-        margin-top: 0;
-        text-align: left;
-    }
+@media (min-width: 768px) {
+  .card {
+    max-width: 700px;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 40px;
+    align-items: start;
+    text-align: center;
+    padding: 32px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .identityGroup{
+ width: 250px;
+ flex-shrink: 0;
+  margin-bottom: 0;
+}
+  .flag {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    margin-bottom: 12px;
+  }
+  .infoGroup {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .title {
+    font-size: 30px;
+    margin: 0;
+    
+  }
+  .bordersSection {
+    margin-top: 10px;
+    width: 100%;
+  }
+  .bordersList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    margin-top: 5px;
+    padding: 0;
+    justify-content: start;
+  }
+  .moreInfo {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    width: 100%;
+  }
+  .toggleBtn {
+    width: fit-content;
+    padding: 10px 24px;
+  }
 }
