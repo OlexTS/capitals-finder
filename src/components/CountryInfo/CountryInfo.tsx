@@ -63,7 +63,7 @@ const CountryInfo = ({ data }: CountryInfoProps) => {
         {isShowMore ? "Hide Details" : "Show Details"}
       </button>
       {isShowMore && (
-        <div>
+        <div className={styles.moreInfo}>
           <p>Currencies: {currensiesList}</p>
           <p>Languages: {languagesList}</p>
           <p>
