@@ -32,20 +32,22 @@ const CountryInfo = ({ data }: CountryInfoProps) => {
         <h2 className={styles.title}>{data.name.common}</h2>
       </div>
       <div className={styles.infoGroup}>
-        <p>
+        <p className={styles.text}>
           <span className={styles.label}>Capital: </span>
           {data.capital[0] || "N/A"}
         </p>
-        <p>
+        <p className={styles.text}>
           <span className={styles.label}>Region: </span>
           {data.region}
         </p>
-        <p>
+        <p className={styles.text}>
           <span className={styles.label}>Population: </span>
           {data.population.toLocaleString()}
         </p>
         <div className={styles.bordersSection}>
-          <span className={styles.label}>Borders:</span>
+          <p className={styles.text}>
+            <span className={styles.label}>Borders:</span>
+          </p>
           {!data.borders || data.borders.length === 0 ? (
             <span>"There are no land borders"</span>
           ) : (
@@ -64,10 +66,14 @@ const CountryInfo = ({ data }: CountryInfoProps) => {
       </button>
       {isShowMore && (
         <div className={styles.moreInfo}>
-          <p>Currencies: {currensiesList}</p>
-          <p>Languages: {languagesList}</p>
-          <p>
-            Maps:{" "}
+          <p className={styles.text}>
+            <span className={styles.label}>Currencies:</span> {currensiesList}
+          </p>
+          <p className={styles.text}>
+            <span className={styles.label}>Languages:</span> {languagesList}
+          </p>
+          <p className={styles.text}>
+            <span className={styles.label}>Maps: </span>
             <a
               href={data.maps.googleMaps}
               target="_blank"
