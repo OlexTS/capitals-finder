@@ -4,6 +4,8 @@ import type { Country } from "../types/country";
 import { fetchCountryInfo } from "../services/contryService";
 import CountryInfo from "./CountryInfo/CountryInfo";
 import Loader from "./Loader/Loader";
+import styles from "./App.module.css";
+import History from "./History/History";
 
 const App = () => {
   const [countryInfo, setCountryInfo] = useState<Country | null>(null);
@@ -42,26 +44,15 @@ const App = () => {
     }
   };
   return (
-    <div className="container">
-      <h1>Capital Finder</h1>
+    <div className={styles.appWrapper}>
+      <h1 className={styles.mainTitle}>Capital Finder</h1>
       <SearchCapital onSearch={handleSearch} />
-      {isError && <p>Please try again</p>}
-      {countryInfo && <CountryInfo data={countryInfo} />}
-      <div className="history-container">
-        {history.length > 0 && <p>Recent searches:</p>}
-        <div className="history-list">
-          {history.map((country) => (
-            <button
-              key={country}
-              onClick={() => handleSearch(country)}
-              className="history-btn"
-            >
-              {country}
-            </button>
-          ))}
-        </div>
-      </div>
-      {isLoading && <Loader />}
+      <History history={history} onSearch={handleSearch}/>
+      <main>
+        {isError && <p>Please try again</p>}
+        {countryInfo && <CountryInfo data={countryInfo} />}
+        {isLoading && <Loader />}
+      </main>
     </div>
   );
 };

@@ -1,0 +1,12 @@
+.mainTitle {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .mainTitle {
+    font-size: 48px;
+    margin-bottom: 40px;
+  }
+}

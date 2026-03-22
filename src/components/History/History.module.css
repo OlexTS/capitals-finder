@@ -1,0 +1,44 @@
+.historyWrapper{
+    width: 90px;
+    min-width: 700px;
+    margin: 10px auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.historyTitle{
+    font-style: 14px;
+    color: #888;
+    font-weight: 500;
+    min-width: 4px;
+}
+.historyChip{
+    background-color: #f0f2f5;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 14px;
+    color: #444;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+.historyChip:hover{
+    background-color: #e4e6e9;
+    border-color: #ccd0d5;
+    transform: translateY(-1);
+
+}
+.historyChip:active{
+transform: translateY(0);
+background-color: #d8dadf;
+}
+
+@media (max-width: 767px) {
+  .historyChip {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
