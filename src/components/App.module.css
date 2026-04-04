@@ -1,12 +1,49 @@
+.appWrapper {
+  min-height: 100vh;
+  width: 100%; /* Займати весь екран */
+  background-color: #f4f7f9;
+  /* ЗМІНА: Гнучкі паддінги, щоб контент не лип до країв */
+  padding: 20px min(15px, 3%); 
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Центруємо все по горизонталі */
+  box-sizing: border-box; /* Гарантія правильного розрахунку */
+  overflow-x: hidden; /* Запобігаємо горизонтальній прокрутці */
+}
+
 .mainTitle {
+  font-size: 2rem;
+  color: #1a1a1a;
+  margin-bottom: 30px;
   text-align: center;
-  font-size: 36px;
-  margin-bottom: 20px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+.error {
+  color: #d9534f;
+  background: #fdf7f7;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid #d9534f;
+  margin: 10px 0;
 }
 
 @media (min-width: 768px) {
+  .appWrapper {
+    padding: 60px 20px;
+  }
   .mainTitle {
     font-size: 48px;
     margin-bottom: 40px;
+  }
+  .content {
+    max-width: 800px;
   }
 }

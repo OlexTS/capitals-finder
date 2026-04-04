@@ -48,8 +48,8 @@ const App = () => {
       <h1 className={styles.mainTitle}>Capital Finder</h1>
       <SearchCapital onSearch={handleSearch} />
       <History history={history} onSearch={handleSearch}/>
-      <main>
-        {isError && <p>Please try again</p>}
+      <main className={styles.content}>
+        {isError && <p className={styles.error}>The country not found. Please try again!</p>}
         {countryInfo && <CountryInfo data={countryInfo} />}
         {isLoading && <Loader />}
       </main>

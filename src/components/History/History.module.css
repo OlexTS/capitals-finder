@@ -1,12 +1,13 @@
 .historyWrapper{
-    width: 90px;
-    min-width: 700px;
+    width: 100%;
+    max-width: 700px;
     margin: 10px auto 0;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: 8px;
+    padding: 0 10px;
 }
 .historyTitle{
     font-style: 14px;

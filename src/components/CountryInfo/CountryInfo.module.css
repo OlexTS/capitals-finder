@@ -1,10 +1,12 @@
 .card {
+  box-sizing: border-box;
   background: #fff;
   border-radius: 20px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   padding: 16px;
   margin: 16px auto;
-  width: 90%;
+  width: calc(100% - 20px);
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,12 +24,13 @@
   }
 }
 .identityGroup {
+  width: 100%;
   text-align: center;
   margin-bottom: 20px;
 }
 .flag {
   width: 100%;
-  max-width: 300px;
+  max-width: 100%;
   height: auto;
   border-radius: 12px;
   object-fit: cover;
@@ -38,6 +41,7 @@
   font-size: 24px;
   margin: 16px 0;
   color: #1a1a1a;
+  word-wrap: break-word;
 }
 .infoGroup {
   width: 100%;
@@ -57,6 +61,7 @@
   padding: 0;
   list-style: none;
   margin: 8px 0;
+  justify-content: center;
 }
 .borderTag {
   background: #f0f2f5;
@@ -92,12 +97,14 @@
 }
 @media (min-width: 768px) {
   .card {
-    max-width: 700px;
+    max-width: 750px;
+    width: 100%;
+    box-sizing: border-box;
     display: grid;
     grid-template-columns: 250px 1fr;
-    gap: 40px;
+    gap: 30px;
     align-items: start;
-    text-align: center;
+    text-align: left;
     padding: 32px;
     margin-right: auto;
     margin-left: auto;
@@ -106,6 +113,7 @@
     width: 250px;
     flex-shrink: 0;
     margin-bottom: 0;
+    text-align: center;
   }
   .flag {
     width: 100%;
