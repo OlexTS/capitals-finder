@@ -16,6 +16,8 @@
     width: 100%;
     padding: 14px 20px;
     font-size: 16px;
+    color: #1a1a1a;
+    background-color: #fff;
     border: 2px solid #e0e0e0;
     border-radius: 12px;
     outline: none;
@@ -26,6 +28,9 @@
     border-color: #007aff;
     background-color: #fff;
     box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.1);
+}
+.searchInput::placeholder {
+  color: #888;
 }
 .searchBtn {
     padding: 14px 24px;
