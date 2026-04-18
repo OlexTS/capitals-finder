@@ -10,7 +10,7 @@ const SearchCapital = ({ onSearch }: SearchCapitalProps) => {
   const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (inputValue.trim()) {
-      onSearch(inputValue);
+      onSearch(inputValue.trim());
     }
     setInputValue("");
   };
@@ -20,6 +20,9 @@ const SearchCapital = ({ onSearch }: SearchCapitalProps) => {
         {" "}
         <input
           className={styles.searchInput}
+          autoComplete="off"
+          autoCorrect="off"
+          autoCapitalize="words"
           type="text"
           placeholder="Please enter a country name..."
           value={inputValue}

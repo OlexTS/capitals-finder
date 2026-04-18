@@ -25,11 +25,13 @@ const App = () => {
   };
 
   const handleSearch = async (countryName: string) => {
+    const cleanName = countryName.trim();
+    if (!cleanName) return;
     setIsLoading(true);
     setIsError(false);
     setCountryInfo(null);
     try {
-      const data = await fetchCountryInfo(countryName);
+      const data = await fetchCountryInfo(cleanName);
       if (data) {
         setCountryInfo(data);
         addHistory(data.name.common);
@@ -47,9 +49,13 @@ const App = () => {
     <div className={styles.appWrapper}>
       <h1 className={styles.mainTitle}>Capital Finder</h1>
       <SearchCapital onSearch={handleSearch} />
-      <History history={history} onSearch={handleSearch}/>
+      <History history={history} onSearch={handleSearch} />
       <main className={styles.content}>
-        {isError && <p className={styles.error}>The country not found. Please try again!</p>}
+        {isError && (
+          <p className={styles.error}>
+            The country not found. Please try again!
+          </p>
+        )}
         {countryInfo && <CountryInfo data={countryInfo} />}
         {isLoading && <Loader />}
       </main>
