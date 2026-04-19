@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./SearchCapital.module.css";
 
 interface SearchCapitalProps {
@@ -7,6 +7,12 @@ interface SearchCapitalProps {
 
 const SearchCapital = ({ onSearch }: SearchCapitalProps) => {
   const [inputValue, setInputValue] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
   const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (inputValue.trim()) {
@@ -14,11 +20,19 @@ const SearchCapital = ({ onSearch }: SearchCapitalProps) => {
     }
     setInputValue("");
   };
+
+  const handleClear = () => {
+    setInputValue("");
+    inputRef.current?.focus();
+  };
+
   return (
     <form className={styles.searchWrapper} onSubmit={handleSubmit}>
       <div className={styles.inputGroup}>
         {" "}
+        <div className={styles.inputFieldContainer}>
         <input
+          ref={inputRef}
           className={styles.searchInput}
           autoComplete="off"
           autoCorrect="off"
@@ -28,6 +42,15 @@ const SearchCapital = ({ onSearch }: SearchCapitalProps) => {
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
         />
+        {inputValue && (
+          <button
+            type="button"
+            className={styles.clearButton}
+            onClick={handleClear}
+          >
+            &times;
+          </button>
+        )}</div>
         <button
           className={styles.searchBtn}
           type="submit"
