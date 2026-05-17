@@ -11,16 +11,17 @@
   flex-direction: column;
   align-items: center;
   transition: all 0.3s ease;
-  animation: slideUp 0.5s ease-out forwards;
+  opacity: 0;
+  animation: slideInUp 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
-@keyframes slideUp {
-  from {
+@keyframes slideInUp {
+  0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(40px) scale(0.98);
   }
-  to {
+  100% {
     opacity: 1;
-    transform: translate(0);
+    transform: translateY(0) scale(1);
   }
 }
 .identityGroup {
@@ -116,6 +117,11 @@
     flex-shrink: 0;
     margin-bottom: 0;
     text-align: center;
+    animation: fadeIn 0.8s ease-out 0.2s forwards;
+    opacity: 0;
+  }
+  @keyframes fadeIn {
+    to {opacity: 1;}
   }
   .flag {
     width: 100%;
