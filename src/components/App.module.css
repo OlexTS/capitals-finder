@@ -1,14 +1,13 @@
 .appWrapper {
   min-height: 100vh;
-  width: 100%; /* Займати весь екран */
+  width: 100%;
   background-color: #f4f7f9;
-  /* ЗМІНА: Гнучкі паддінги, щоб контент не лип до країв */
-  padding: 20px min(15px, 3%); 
+  padding: 20px min(15px, 3%);
   display: flex;
   flex-direction: column;
-  align-items: center; /* Центруємо все по горизонталі */
-  box-sizing: border-box; /* Гарантія правильного розрахунку */
-  overflow-x: hidden; /* Запобігаємо горизонтальній прокрутці */
+  align-items: center;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .mainTitle {
@@ -18,6 +17,27 @@
   text-align: center;
   font-weight: 800;
   letter-spacing: -0.5px;
+  /* animation: glow 3s ease-in-out infinite; */
+  opacity: 0;
+  letter-spacing: 5px;
+  animation: fadeInGather 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+/* @keyframes glow {
+  0%,
+  100% {
+    text-shadow: 0 0 5px rgba(0, 122, 255, 0.1);
+    color: #1a1a1a;
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(0, 122, 255, 0.3);
+    color: #445160;
+  }
+} */
+ @keyframes fadeInGather {
+  to {
+    opacity: 1;
+    letter-spacing: -0.5px; 
+  }
 }
 .content {
   width: 100%;
