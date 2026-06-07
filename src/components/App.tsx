@@ -52,12 +52,25 @@ const App = () => {
       <History history={history} onSearch={handleSearch} />
       <main className={styles.content}>
         {isError && (
-          <p className={styles.error}>
-            The country not found. Please try again!
-          </p>
+          <div className={styles.errorCard}>
+            <div className={styles.errorIcon}>⚠️</div>
+            <h3 className={styles.errorTitle}>Country Not Found</h3>
+            <p className={styles.errorMessage}>
+              We couldn't find any country matching your request. Please check
+              the spelling and try again.
+            </p>
+          </div>
         )}
         {countryInfo && <CountryInfo data={countryInfo} />}
         {isLoading && <Loader />}
+        {!countryInfo && !isLoading && !isError && (
+          <div className={styles.emptyState}>
+            <div className={styles.emptyIcon}>🌍</div>
+            <p>
+              Discover capitals, regions, and maps of any country in seconds.
+            </p>
+          </div>
+        )}
       </main>
     </div>
   );
