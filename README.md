@@ -30,6 +30,6 @@
 ---
 
 ## 📦 Як запустити локально (Installation & Setup)
-git clone https://github.com/OlexTS/capitals-finder.git
-npm install
-npm run dev
+* git clone https://github.com/OlexTS/capitals-finder.git
+* npm install
+* npm run dev
